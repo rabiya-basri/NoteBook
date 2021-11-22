@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap');
+
+.nav-bar{
+    background-color: #4F46E5;
+    color: white;
+    border-radius: 1rem 0rem 1rem;
+    font-family: 'Roboto', sans-serif;
+}
+.nav-bar-title{
+    flex-grow: 1;
+}
+
+.navBarLink{
+    color: white;
+    text-decoration: none;
+    margin: 0.2rem;
+    font-size: 16px;
+}
+
+.gridContainer{
+    width: 100%;
+}
+
+h2{
+    color:#4F46E5;
+}
+.gridItem{
+    margin-left: 1rem;
+
+}
+
+.formInputs{
+    width: 100%;
+}
+.btn{
+    margin: 0.2rem;
+}
+.register-container{
+    margin-top: 2rem;
+    margin-left: 8rem;
+    padding: 2rem;
+    padding-left: 2rem;
+    border: 1px solid black;
+}
