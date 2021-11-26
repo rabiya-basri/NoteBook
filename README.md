@@ -1,5 +1,9 @@
 # Notebook
 
+
+https://user-images.githubusercontent.com/51847270/143617359-cdaafeff-da92-41ec-8695-d09ae9b00870.mov
+
+
 ### Overview
 this project allow user to create/maintain notes once they register into application. once registration is done user can create multiple notes, Edit or delete notes. the project is build using react-redux
 
@@ -31,5 +35,4 @@ this project allow user to create/maintain notes once they register into applica
 - Notes
   - allow user to create,Read, Edit and Delete notes 
 
-### link to view Project demo
-https://mynotespro.netlify.app/
+
