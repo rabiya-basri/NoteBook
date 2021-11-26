@@ -24,7 +24,7 @@ const NavBar = (props) => {
                      <Link className='navBarLink' onClick={(e) => {
                                 e.preventDefault()
                                 localStorage.removeItem('token')
-                                console.log('successfully log out')
+                                alert('successfully log out')
                                 handelAuth()
                                 props.history.push('/')
                             }}>Logout</Link>   
