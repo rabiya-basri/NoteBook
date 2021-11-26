@@ -11,7 +11,7 @@ export const startRegisterUser = (formData,props) => {
                 props.history.push('/login')
             })
             .catch((err) => {
-                console.log(err.message)
+                alert(err.message)
             })
     }
 }
@@ -40,7 +40,7 @@ export const startUserLogin = (formData,props) => {
                 //console.log(users)
             })
             .catch((err) => {
-                console.log(err.message)
+                alert(err.message)
             })
     }
 }

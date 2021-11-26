@@ -21,7 +21,7 @@ export const startAddNotes = (formData) => {
                 dispatch(addNotes(notesData))
             })
             .catch((err) => {
-            console.log(err.message)
+            alert(err.message)
         })
     }
 }
@@ -46,7 +46,7 @@ export const startRemoveNotes = (_id) => {
                 dispatch(removeNotes(result._id))
             })
             .catch((err) => {
-            console.log(err.message)
+            alert(err.message)
         })
     }
 }
@@ -71,7 +71,7 @@ export const startGetUsers = () => {
                 dispatch(getNotes(result))
             })
             .catch((err) => {
-            console.log(err.message)
+            alert(err.message)
         })
     }
 }
@@ -100,7 +100,7 @@ export const startShowNotes = (_id) => {
                 console.log(result)
             })
             .catch((err) => {
-            console.log(err.message)
+            alert(err.message)
         })
     }
 }
@@ -125,7 +125,7 @@ export const startEditNotes = (formData) => {
                 console.log(response.data)
             })
             .catch((err) => {
-                console.log(err.message)
+               alert(err.message)
             })
     }
 }
