@@ -1,24 +1,19 @@
-import { Button } from "@material-ui/core";
-import React,{useState} from "react";
-import { useSelector,useDispatch } from "react-redux";
+import React,{useState} from 'react'
+import MyNotesForm from './MyNotesForm'
 import { startRemoveNotes } from "../Actions/NotesAction";
 import { startShowNotes } from "../Actions/NotesAction";
 import { startEditNotes } from "../Actions/NotesAction";
-import EditNotes from './EditNotes'
-import '../style.css'
-import MyNotesForm from "./MyNotesForm";
+import { useDispatch } from 'react-redux';
+import { Button } from '@material-ui/core';
+
 
 const MyNotesItem = (props) => {
-    const dispatch = useDispatch()
-    const [toggle, setToggle] = useState(false)
-    const [id, setId] = useState('')
-    const [title, setTitle] = useState('')
-    const [body, setBody] = useState('')
     
-    const notes = useSelector((state) => {
-        return state.notes.data
-    })
-
+    const dispatch = useDispatch()
+    
+    const { _id,title,body } = props
+    const [toggle, setToggle] = useState(false)
+    
     const handelRemove = (_id) => {
         dispatch(startRemoveNotes(_id))
     }
@@ -33,38 +28,33 @@ const MyNotesItem = (props) => {
     }
 
     const handelSubmit = (note) => {
-        setId(note._id)
-        setTitle(note.title)
-        setBody(note.body)
+        dispatch(startEditNotes({ ...note, _id: _id }))
+        handelToggle()
     }
 
     return (
-        <>
-            {toggle ?
-                (<> <MyNotesForm id={id} title={title} body={body} handelToggle={handelToggle} />
-                    <Button variant='contained' size='small' color='secondary' onClick={handelToggle}>cancel</Button></>) :
-                (
-                <>
-                    {notes.map((note) => {
-                return (
-                     <>
-                        <h3 onClick={() => {
-                            handelShow(note._id)
-                         }} key={note._id}>{note.title}</h3>
-                        <Button style={{margin:'0.2rem'}} variant='contained' size='small' color='secondary' onClick={() => {
-                         handelRemove(note._id)
-                        }}>Remove</Button>
-                        <Button variant='contained' size='small' color='primary' onClick={() => {
-                            handelToggle(note._id)
-                           handelSubmit(note)
-                        }}>Edit</Button>
-                     </>
-                )
-            })}
-                </>
-            ) }
-            
-        </>
+        <div>
+        {toggle ? (
+            <>
+                 <MyNotesForm formSubmit={handelSubmit} title={title} body={body} handelToggle={handelToggle} toggle={ toggle}/>
+                {/* <Button variant='contained' size='small' color='secondary' onClick={() => {
+                    handelToggle(_id)
+                }}>Cancel</Button>  
+                */}
+            </>
+        )  : <>
+                    <h2 style={{color:'black'}} onClick={() => {
+                        handelShow(_id)
+                    }}>{title}</h2>
+                    <Button variant='contained' size='small' color='primary' style={{marginRight:'0.2rem'}} onClick={() => {
+                        handelToggle(_id)
+                    }}>Edit</Button>
+                    <Button variant='contained' size='small' color='secondary' onClick={() => {
+                        handelRemove(_id)
+                    }}>Remove</Button>
+        </> }
+        
+    </div>
     )
 }
 export default MyNotesItem

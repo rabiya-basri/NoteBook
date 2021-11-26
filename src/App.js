@@ -17,11 +17,11 @@ const App = (props) => {
     }, [])
     
     return (
-        <Container>
+        <>
         <BrowserRouter>
                 <NavBar handelAuth={handelAuth} isLoggedIn={ isLoggedIn}/>
          </BrowserRouter>
-         </Container>
+         </>
     )
 }
 export default App

@@ -52,11 +52,11 @@ const Login = (props) => {
             <Typography variant='h6' style={{marginBottom:'0.4rem',fontWeight:600,marginLeft:'6rem'}}>Login</Typography>
             <form onSubmit={ handelSubmit} style={{marginLeft:'2rem'}}>
                 <TextField type='text' value={email} onChange={handelInput}
-                name='email' label='enter Email' style={{width:'90%'}} /><br />
+                name='email' label='Enter Email' style={{width:'90%'}} /><br />
                 {formErrors.email && <span style={{ color: 'red' }}>{formErrors.email}</span>}<br />
                 
                 <TextField type='password' value={password} onChange={handelInput}
-                name='password' label='enter Password' style={{width:'90%'}} /><br /><br/>
+                name='password' label='Enter Password' style={{width:'90%'}} /><br /><br/>
                 
                 <Button variant='contained' size='small' color='primary' type='submit'>Login</Button>
             </form>

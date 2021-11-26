@@ -1,13 +1,9 @@
 import React,{useState} from "react";
-// import { useDispatch } from 'react-redux'
-// import { startAddNotes } from "../Actions/NotesAction";
-import { Container, TextField,Button, TextareaAutosize } from "@material-ui/core"
+import { Container, TextField,Button, TextareaAutosize ,Paper, Grid} from "@material-ui/core"
 import '../style.css'
 
 const MyNotesForm = (props) => {
-   // const dispatch = useDispatch()
-    const { title: noteTitle, body: noteBody, formSubmit } = props
-    
+    const { title: noteTitle, body: noteBody, formSubmit,toggle } = props
     const [title, setTitle] = useState(noteTitle?noteTitle:'')
     const [body, setNotesBody] = useState(noteBody?noteBody:'')
     const [formErrors, setFormErrors] = useState({})
@@ -37,7 +33,6 @@ const MyNotesForm = (props) => {
                 title: title,
                 body:body
             }
-           // dispatch(startAddNotes(formData))
             formSubmit(formData)
             setTitle('')
             setNotesBody('')
@@ -48,20 +43,29 @@ const MyNotesForm = (props) => {
     }
 
     return (
-        <Container>
+        <Grid>
             <form onSubmit={ handelSubmit}>
-                <TextField className='formInputs' type='text' value={title} onChange={handelInput}
-                name='title' label='Notes Title' /><br />
+                <TextField className='formInputs' type='text'
+                    value={title} onChange={handelInput}
+                    name='title' label='Notes Title'
+                /><br />
                 {formErrors.title && <span style={{ color: 'red'}}>{formErrors.title}</span>}<br />
                 
-                <TextareaAutosize className='formInputs'  minRows={3} value={body} onChange={handelInput}
-                name='notesBody' label='create your notes'
-                style={{height:'150px'}}
+                <TextareaAutosize className='formInputs' minRows={3}
+                    value={body} onChange={handelInput}
+                    name='notesBody' placeholder='create your notes'
+                    style={{height:'150px'}}
                 /><br />
                 
-                <Button variant='contained' size='small' color='primary' type='submit'>Add</Button>
+                {toggle ?
+                    <Button variant='contained' size='small' color='primary'  type='submit' style={{marginRight:'0.2rem'}}>update</Button>
+                    :
+                    <Button variant='contained' size='small' color='primary' type='submit'>Add</Button>
+                }
+                
+                {toggle && <Button variant='contained' size='small' color='secondary' type='submit'>cancel</Button>}
             </form>
-        </Container>
+        </Grid>
     )
 }
 export default MyNotesForm

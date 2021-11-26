@@ -2,6 +2,7 @@ import { Grid,Container } from '@material-ui/core'
 import React from 'react'
 import notes from '../assests/notes.png'
 import '../style.css'
+
 const Home = (props) => {
     const paperStyle = {
         padding: 20,
