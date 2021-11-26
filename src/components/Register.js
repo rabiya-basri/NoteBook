@@ -1,12 +1,12 @@
 import React,{useState} from 'react'
-import Header from '../ReuseableComponent/Header'
 import { startRegisterUser } from '../Actions/userAction'
 import { useDispatch } from 'react-redux'
-import { Button, Container, TextField } from '@material-ui/core'
+import { Button, Grid, Paper, TextField,Typography } from '@material-ui/core'
 import validator from 'validator';
 import '../style.css'
 
 const Register = (props) => {
+    const paperStyle = { padding: 20, height: '70%', width: 400, margin: '20px auto' }
     const dispatch = useDispatch()
     
     const [username, setUsername] = useState('')
@@ -57,24 +57,26 @@ const Register = (props) => {
         
     }
     return (
-        <Container className='register-container'>
-            <Header type='h1' text='Register' />
-            <form onSubmit={ handelSubmit}>
+        <Grid>
+            <Paper  style={paperStyle}>
+            <Typography variant='h6' style={{marginBottom:'0.4rem',fontWeight:600,marginLeft:'6rem'}}>Register</Typography>
+            <form onSubmit={ handelSubmit} style={{marginLeft:'2rem'}}>
                 <TextField varient='standard' type='text' value={username} onChange={handelInput}
-                 name='username' placeholder='Enter username' /><br />
+                 name='username' label='Enter username' style={{width:'90%'}} /><br />
                 {formErrors.username && <span style={{color:'red'}}>{formErrors.username}</span>}<br/>
                 
                 <TextField variant='standard' type='text' value={email} onChange={handelInput}
-                name='email' placeholder='Enter email' /><br />
+                name='email' label='Enter email' style={{width:'90%'}} /><br />
                 {formErrors.email && <span style={{color:'red'}}>{ formErrors.email}</span>}<br/>
                 
                 <TextField variant='standard' type='password' value={password} onChange={handelInput}
-                 name='password' placeholder='Enter password' /><br/>
+                 name='password' label='Enter password' style={{width:'90%'}} /><br/>
                 {formErrors.password && <span style={{ color: 'red' }}>{formErrors.password}</span>}<br/>
                 
                 <Button variant='contained' size='small' color='primary' type='submit'>Register</Button>
             </form>
-        </Container>
+            </Paper>
+        </Grid>
     )
 }
 export default Register

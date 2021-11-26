@@ -51,11 +51,11 @@ const MyNotesForm = (props) => {
         <Container>
             <form onSubmit={ handelSubmit}>
                 <TextField className='formInputs' type='text' value={title} onChange={handelInput}
-                name='title' placeholder='Enter Notes Title' /><br />
+                name='title' label='Notes Title' /><br />
                 {formErrors.title && <span style={{ color: 'red'}}>{formErrors.title}</span>}<br />
                 
                 <TextareaAutosize className='formInputs'  minRows={3} value={body} onChange={handelInput}
-                name='notesBody' placeholder='create your notes'
+                name='notesBody' label='create your notes'
                 style={{height:'150px'}}
                 /><br />
                 

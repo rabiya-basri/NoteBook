@@ -6,6 +6,7 @@ import { startShowNotes } from "../Actions/NotesAction";
 import { startEditNotes } from "../Actions/NotesAction";
 import EditNotes from './EditNotes'
 import '../style.css'
+import MyNotesForm from "./MyNotesForm";
 
 const MyNotesItem = (props) => {
     const dispatch = useDispatch()
@@ -40,7 +41,7 @@ const MyNotesItem = (props) => {
     return (
         <>
             {toggle ?
-                (<> <EditNotes id={id} title={title} body={body} handelToggle={handelToggle} />
+                (<> <MyNotesForm id={id} title={title} body={body} handelToggle={handelToggle} />
                     <Button variant='contained' size='small' color='secondary' onClick={handelToggle}>cancel</Button></>) :
                 (
                 <>
