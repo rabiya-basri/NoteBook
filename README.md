@@ -32,3 +32,4 @@ this project allow user to create/maintain notes once they register into applica
   - allow user to create,Read, Edit and Delete notes 
 
 ### link to view Project demo
+https://mynotespro.netlify.app/
