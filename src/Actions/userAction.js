@@ -24,7 +24,7 @@ export const registerUser = (formData) => {
 
 export const startUserLogin = (formData,props) => {
     return (dispatch) => {
-        axios.post('https://dct-user-auth.herokuapp.com/users/login', formData)
+        axios.post('http://dct-user-auth.herokuapp.com/users/login', formData)
             .then((response) => {
                 const users = response.data
                 if (Object.keys(users).includes('errors')) {
